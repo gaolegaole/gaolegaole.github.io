@@ -1,1 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 朱凌宝的博客</title><link>https://gaolegaole.github.io/posts/</link><description>Recent content in Posts on 朱凌宝的博客</description><generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Wed, 03 Nov 2021 10:14:52 +0800</lastBuildDate><atom:link href="https://gaolegaole.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Post</title><link>https://gaolegaole.github.io/posts/my-first-post/</link><pubDate>Wed, 03 Nov 2021 10:14:52 +0800</pubDate><guid>https://gaolegaole.github.io/posts/my-first-post/</guid><description>第一篇文章</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 朱凌宝的博客</title><link>https://gaolegaole.github.io/posts/</link><description>Recent content in Posts on 朱凌宝的博客</description><generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Wed, 03 Nov 2021 11:29:28 +0800</lastBuildDate><atom:link href="https://gaolegaole.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Create a Blog Use Github Pages and Hugo</title><link>https://gaolegaole.github.io/posts/how-to-create-a-blog-use-github-pages-and-hugo/</link><pubDate>Wed, 03 Nov 2021 11:29:28 +0800</pubDate><guid>https://gaolegaole.github.io/posts/how-to-create-a-blog-use-github-pages-and-hugo/</guid><description>工作流 整个方案的流程大致如下：
+用 Markdown 格式写作文章。
+使用生成器将 markdown 文件转换成静态站点。
+将生成的站点内容推送到 GitHub 并发布。
+写 markdown 没啥好说的，什么编辑器都可以，我一直用的是 Typora。静态站点生成器我选择了 Hugo，原因是最近刚好在学 Go，此外还有 Gatsby、Jekyll、Hexo等很多选项。接下来要做的工作是生成静态站点并通过GitHub Pages 发布。
+准备工作 创建一个项目仓库（hugo工程目录，相当于源码，名称随意）
+创建一个主页仓库（相当于静态页面目录，必须是 .github.io，其中是你的github用户名）
+生成静态站点 ​ 使用 Hugo 生成静态博客站点非常简单，具体的步骤和用法可以参考官方文档的 Quick Start。下面简单介绍下整个过程：
+​ 安装 Hugo。macOS 下可以直接使用 homebrew安装：brew install hugo。
+​ 创建一个新的站点。这会生成一个特定目录结构的项目文件夹，用来维护所有的站点内容。假设我们想把它命名为hugo-blog，则使用以下命令创建并切换到该目录，后续的操作和命令都会在这个根目录下执行：
+hugo new site hugo-blog cd hugo-blog 安装一个主题。这一步是必需的，否则会因为缺少基础模板无法生成站点。安装主题有 3 种方式，以 eureka 主题为例：
+直接下载主题的压缩文件，将解压得到的文件夹重命名为主题名称 eureka 放到 themes/目录下。
+通过 git submodule 安装：</description></item><item><title>My First Post</title><link>https://gaolegaole.github.io/posts/my-first-post/</link><pubDate>Wed, 03 Nov 2021 10:14:52 +0800</pubDate><guid>https://gaolegaole.github.io/posts/my-first-post/</guid><description>第一篇文章</description></item></channel></rss>
