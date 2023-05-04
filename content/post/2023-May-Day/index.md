@@ -3,6 +3,10 @@ title: "2023 May Day"
 date: 2023-05-04T11:35:39+08:00
 draft: false
 description: "五一劳动节"
+categories:
+    - life
+tags:
+    - life
 ---
 ## 拍照、玩耍
 

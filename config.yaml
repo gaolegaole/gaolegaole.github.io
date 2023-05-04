@@ -10,6 +10,10 @@ params:
     sidebar:
         emoji: 🍥
         subtitle: 海阔凭鱼跃，天高任鸟飞
+        avatar:
+            enabled: false
+            local: false
+            src: content/avatar.jpg
     footer:
         since: 2023
     article:
