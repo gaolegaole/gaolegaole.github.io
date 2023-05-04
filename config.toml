@@ -1,5 +1,0 @@
-baseURL = 'https://gaolegaole.github.io/'
-languageCode = 'zh'
-title = '朱凌宝的博客'
-description = '海阔凭鱼跃，天高任鸟飞'
-theme = "hugo-theme-stack"

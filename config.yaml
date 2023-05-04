@@ -1,0 +1,59 @@
+baseURL: 'https://gaolegaole.github.io/'
+languageCode: zh-cn
+title: 朱凌宝的博客
+description: 纪录生活
+theme: hugo-theme-stack
+DefaultContentLanguage: zh-cn
+params:
+    mainSections:
+        - post
+    sidebar:
+        emoji: 🍥
+        subtitle: 海阔凭鱼跃，天高任鸟飞
+    footer:
+        since: 2023
+    article:
+        math: false
+        toc: true
+        readingTime: true
+        license:
+            enabled: true
+            default: Licensed under CC BY-NC-SA 4.0
+
+    widgets:
+        homepage:
+            - type: search
+            - type: archives
+              params:
+                  limit: 5
+            - type: categories
+              params:
+                  limit: 10
+            - type: tag-cloud
+              params:
+                  limit: 10
+        page:
+            - type: toc
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+markup:
+    goldmark:
+        renderer:
+            ## Set to true if you have HTML content inside Markdown
+            unsafe: false
+    tableOfContents:
+        endLevel: 4
+        ordered: true
+        startLevel: 2
+    highlight:
+        noClasses: false
+        codeFences: true
+        guessSyntax: true
+        lineNoStart: 1
+        lineNos: true
+        lineNumbersInTable: true
+        tabWidth: 4
