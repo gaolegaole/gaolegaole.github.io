@@ -1,7 +1,7 @@
 baseURL: 'https://gaolegaole.github.io/'
 languageCode: zh-cn
 title: 朱凌宝的博客
-description: 纪录生活
+description: 记录生活
 theme: hugo-theme-stack
 DefaultContentLanguage: zh-cn
 params:
@@ -61,3 +61,14 @@ markup:
         lineNos: true
         lineNumbersInTable: true
         tabWidth: 4
+languages:
+    en:
+        languageName: English
+        title: 朱凌宝的博客
+        description: 记录生活
+        weight: 1
+    zh-cn:
+        languageName: 中文
+        title: 朱凌宝的博客
+        description: 记录生活
+        weight: 2

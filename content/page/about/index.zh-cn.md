@@ -7,4 +7,4 @@ menu:
             icon: user
 ---
 
-This is a test page for i18n support.
+朱凌宝，程序员一名。
