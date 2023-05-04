@@ -1,8 +1,8 @@
 ---
-title: "Change the User Group After the Git Clone"
+title: "Change the user group after at git clone"
 date: 2023-05-04T14:41:10+08:00
 draft: false
-description: "Change the User Group After the Git Clone"
+description: "Change the user group after at git clone"
 categories:
 
 tags:
