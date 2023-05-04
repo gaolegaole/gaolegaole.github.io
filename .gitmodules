@@ -1,0 +1,10 @@
+[submodule "themes/eureka"]
+	path = themes/eureka
+	url = https://github.com/wangchucheng/hugo-eureka.git
+[submodule "public"]
+	path = public
+	url = https://github.com/gaolegaole/gaolegaole.github.io.git
+	branch = main
+[submodule "themes/hugo-theme-stack"]
+	path = themes/hugo-theme-stack
+	url = https://github.com/CaiJimmy/hugo-theme-stack/

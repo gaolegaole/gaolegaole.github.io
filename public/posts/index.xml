@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on 朱凌宝的博客</title>
+        <link>https://gaolegaole.github.io/posts/</link>
+        <description>Recent content in Posts on 朱凌宝的博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh</language>
+        <lastBuildDate>Wed, 03 Nov 2021 11:29:28 +0800</lastBuildDate><atom:link href="https://gaolegaole.github.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>How to Create a Blog Use Github Pages and Hugo</title>
+        <link>https://gaolegaole.github.io/posts/how-to-create-a-blog-use-github-pages-and-hugo/</link>
+        <pubDate>Wed, 03 Nov 2021 11:29:28 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/posts/how-to-create-a-blog-use-github-pages-and-hugo/</guid>
+        <description>&lt;h1 id=&#34;工作流&#34;&gt;工作流&lt;/h1&gt;
+&lt;p&gt;整个方案的流程大致如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;用 Markdown 格式写作文章。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用生成器将 markdown 文件转换成静态站点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将生成的站点内容推送到 GitHub 并发布。&lt;/p&gt;
+&lt;p&gt;写 markdown 没啥好说的，什么编辑器都可以，我一直用的是 Typora。静态站点生成器我选择了 Hugo，原因是最近刚好在学 Go，此外还有 Gatsby、Jekyll、Hexo等很多选项。接下来要做的工作是生成静态站点并通过GitHub Pages 发布。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;准备工作&#34;&gt;准备工作&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;创建一个项目仓库（hugo工程目录，相当于源码，名称随意）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建一个主页仓库（相当于静态页面目录，必须是 &lt;!-- raw HTML omitted --&gt;.github.io，其中&lt;!-- raw HTML omitted --&gt;是你的github用户名）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;生成静态站点&#34;&gt;生成静态站点&lt;/h1&gt;
+&lt;p&gt;​	使用 Hugo 生成静态博客站点非常简单，具体的步骤和用法可以参考官方文档的 Quick Start。下面简单介绍下整个过程：&lt;/p&gt;
+&lt;p&gt;​	安装 Hugo。macOS 下可以直接使用 homebrew安装：brew install hugo。&lt;/p&gt;
+&lt;p&gt;​	创建一个新的站点。这会生成一个特定目录结构的项目文件夹，用来维护所有的站点内容。假设我们想把它命名为&lt;code&gt;hugo-blog&lt;/code&gt;，则使用以下命令创建并切换到该目录，后续的操作和命令都会在这个根目录下执行：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new site hugo-blog
+cd hugo-blog
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装一个主题。这一步是必需的，否则会因为缺少基础模板无法生成站点。安装主题有 3 种方式，以 &lt;code&gt;eureka&lt;/code&gt; 主题为例：&lt;/p&gt;
+&lt;p&gt;直接下载主题的压缩文件，将解压得到的文件夹重命名为主题名称 eureka 放到 themes/目录下。&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;git submodule&lt;/code&gt; 安装：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git init
+git submodule add https://github.com/wangchucheng/hugo-eureka.git themes/eureka
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过 Hugo Modules 安装（这种方式要求本机安装有 Go 1.12 及以上版本，且只有部分主题支持）：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo mod init &amp;lt;module_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;&amp;lt;module_name&amp;gt;&lt;/code&gt; 并不重要，随便起个名字就行。&lt;/p&gt;
+&lt;p&gt;安装后需要启用主题，方法是将主题名称写入到根目录下的默认配置文件 config.yml 中：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo &#39;theme = &amp;quot;eureka&amp;quot;&#39; &amp;gt;&amp;gt; config.toml&lt;/code&gt;
+如果是通过 Hugo Modules 安装，需要把主题名称替换成模块名称：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo &#39;theme = &amp;quot;github.com/wangchucheng/hugo-eureka&amp;quot;&#39; &amp;gt;&amp;gt; config.toml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​	添加一篇文章。可以直接在 content/posts 目录下创建 markdown 文件，但需要手动写入一些元信息，因此推荐使用 Hugo 自带的命令：hugo new posts/my-first-post.md，添加的文件会以如下元信息开头：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;---
+title: &amp;quot;My First Post&amp;quot;
+date: 2019-03-26T08:47:11+01:00
+draft: true
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;​	在下方接着写入文章内容即可。注意此时该文件为草稿状态，写作完成后需要改成 draft: false 才能部署。&lt;/p&gt;
+&lt;p&gt;​	启动 Hugo 预览服务器。Hugo 可以启动一个 Web 服务器，同时构建站点内容到内存中并在检测到文件更改后重新渲染，方便我们在开发环境实时预览对站点所做的更改。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hugo server -D&lt;/code&gt;
+添加 -D 选项以输出草稿状态的文章，执行成功后可以通过 http://localhost:1313/ 访问站点。&lt;/p&gt;
+&lt;p&gt;​	自定义主题配置。站点的配置项默认保存在根目录的 config.toml 文件中，配置项较多时通常会用主题提供的预设配置文件来替换该文件，还可以通过config 目录加多个文件的方式来组织配置。默认配置文件如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;baseURL = &amp;quot;http://example.org/&amp;quot;      # 发布地址，由主机名以及路径组成
+languageCode = &amp;quot;en-us&amp;quot;               # 语言代码，中文可以设置为&amp;quot;zh&amp;quot;
+title = &amp;quot;My New Hugo Site&amp;quot;           # 站点标题
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;​	这一步应该是整个过程中最麻烦也是最容易出问题的一步，视乎你选择的主题与想要的功能不同，需要自定义的配置项也不同，数量从几个到上百个不等。有些主题会有详细的文档解释配置过程，有些则一笔带过只能自己去摸索，配置较多时相互间可能还有依赖关系，最好更改一个配置就刷新一次页面确认下结果。&lt;/p&gt;
+&lt;p&gt;​	建议起步时一切从简，花大把时间搞各种花里胡哨的样式和功能，还不如多写几篇文章。&lt;/p&gt;
+&lt;p&gt;​	构建静态页面。站点配置成我们理想的效果之后就可以构建静态页面了：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hugo -D&lt;/code&gt;
+添加 -D 选项可以在结果中包括草稿内容，默认情况下静态页面会输出到根目录下的 public 文件夹中。&lt;/p&gt;
+&lt;h1 id=&#34;发布步骤&#34;&gt;发布步骤&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在 GitHub 创建个人主页仓库，仓库名称必须设置为 &lt;code&gt;&amp;lt;USERNAME&amp;gt;.github.io&lt;/code&gt;，这个仓库仅存放生成的静态内容。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 GitHub 创建一个项目仓库 &lt;code&gt;hugo-blog&lt;/code&gt; 并添加为我们本地项目文件夹的远程仓库。这个仓库用来维护站点配置和原始的文章内容。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;假设我们在已经通过上文的步骤在 &lt;code&gt;public&lt;/code&gt; 文件夹中生成了想发布的静态内容，运行：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git submodule add -b main https://github.com/&amp;lt;USERNAME&amp;gt;/&amp;lt;USERNAME&amp;gt;.github.io.git public
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 &lt;code&gt;public&lt;/code&gt; 目录中创建一个 git 子模块，之后这个目录将以 &lt;code&gt;https://github.com/&amp;lt;USERNAME&amp;gt;/&amp;lt;USERNAME&amp;gt;.github.io&lt;/code&gt; 作为远程仓库。如果出错，请先提交一次代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;确保配置文件中的 &lt;code&gt;baseUrl&lt;/code&gt; 已经设置为了 &lt;code&gt;https://&amp;lt;USERNAME&amp;gt;.github.io/&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git submodule add -b main https://github.com/&amp;lt;USERNAME&amp;gt;/&amp;lt;USERNAME&amp;gt;.github.io.git public
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;切换到public目录，push到主页目录&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd public
+git push
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;大功告成！稍等几分钟就可以在 &lt;code&gt;https://&amp;lt;USERNAME&amp;gt;.github.io&lt;/code&gt; 看到我们的个人博客了。&lt;/p&gt;
+&lt;h1 id=&#34;通过-github-pages-发布&#34;&gt;通过 GitHub Pages 发布&lt;/h1&gt;
+&lt;p&gt;​	通过个人主页发布：必须创建一个 &lt;!-- raw HTML omitted --&gt;.github.io 仓库来托管生成的静态内容，发布后的域名为 https://&lt;!-- raw HTML omitted --&gt;.github.io，我们需要将 config.yml 中的 baseUrl 设置为不同的值。&lt;/p&gt;
+&lt;h1 id=&#34;通过-github-actions-自动部署&#34;&gt;通过 GitHub Actions 自动部署&lt;/h1&gt;
+&lt;p&gt;目前我们的「创作-发布」流程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在项目仓库编辑原始内容并进行版本管理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行自动脚本生成静态站点并推送到个人主页仓库完成发布。&lt;/p&gt;
+&lt;p&gt;这套流程已经很流畅，但还有一些改进空间：我们可以使用 GitHub Actions，在每次向远程的项目仓库推送原始内容更改时自动执行第 2 步进行发布。&lt;/p&gt;
+&lt;p&gt;GitHub 上有许多这类自动化部署任务的开源 Actions 项目，我们选择了其中一个简单易用的 GitHub Actions for Hugo。具体的操作步骤截图和详细配置项可以查看该项目的 README。下面简单介绍下配置过程：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在项目文件夹中添加目录和文件：&lt;code&gt;.github/workflows/gh-pages.yml&lt;/code&gt;，gh-pages.yml 文件内容如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;name: github pages
+
+on:
+  push:
+    branches:
+      - main  # 每次推送到 main 分支都会触发部署任务
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: &#39;0.79.1&#39;
+          extended: true
+       
+      - name: Build
+        run: hugo --minify
+       
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: &amp;lt;USERNAME&amp;gt;/&amp;lt;USERNAME&amp;gt;.github.io  # 替换成上文所创建的个人主页仓库
+          publish_branch: main  #默认是master，我这里修改了一下分支名称
+          publish_dir: ./public
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个文件所定义的 workflow 基于项目仓库运行，但我们需要将运行过程生成的静态文件推送到个人主页仓库 &lt;!-- raw HTML omitted --&gt;.github.io 完成发布，因此在 Deploy 任务中按照文档的 Deploy to external repository external_repository 一节做了专门的配置。&lt;/p&gt;
+&lt;p&gt;在本地生成 SSH 部署密钥：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;$(git config user.email)&amp;quot; -f gh-pages -N &amp;quot;&amp;quot;
+# 将在当前目录生成如下密钥文件:
+#   gh-pages.pub (公钥)
+#   gh-pages     (私钥)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 GitHub 分别进入&lt;code&gt;项目仓库&lt;/code&gt;和&lt;code&gt;个人主页仓库&lt;/code&gt;的 Settings 页面：&lt;/p&gt;
+&lt;p&gt;将公钥 &lt;code&gt;gh-pages&lt;/code&gt; 作为&lt;code&gt; Secret&lt;/code&gt; 添加到项目仓库，并设置&lt;code&gt; Name&lt;/code&gt; 为&lt;code&gt; ACTIONS_DEPLOY_KEY&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gaolegaole.github.io/static/images/image-20211103121208805.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211103121208805&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;将私钥&lt;code&gt; gh-pages.pub&lt;/code&gt; 作为&lt;code&gt;Deploy Key&lt;/code&gt;添加到个人主页仓库，并设置为 &lt;code&gt;Allow write access&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gaolegaole.github.io/static/images/image-20211103121300636.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20211103121300636&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;接下来我们测试一下效果。&lt;/p&gt;
+&lt;p&gt;​	在本地做一些更改，预览效果后提交并推送，然后在项目仓库的 GitHub Actions 页面检查相应的 workflow 是否运行成功。不出意外的话，很快个人主页仓库将新增一个由该 workflow 创建的提交，访问个人博客页面也会发现页面已经更新。&lt;/p&gt;
+&lt;h1 id=&#34;参考&#34;&gt;参考：&lt;/h1&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.waynerv.com/posts/setup-blog-with-hugo-and-github-pages/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.waynerv.com/posts/setup-blog-with-hugo-and-github-pages/&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>My First Post</title>
+        <link>https://gaolegaole.github.io/posts/my-first-post/</link>
+        <pubDate>Wed, 03 Nov 2021 10:14:52 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/posts/my-first-post/</guid>
+        <description>&lt;p&gt;第一篇文章&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://gaolegaole.github.io/%e4%b8%8b%e8%bd%bd.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
