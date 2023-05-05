@@ -29,13 +29,13 @@ ubuntu 有一个 sudo debugfs -R filename mountdev 的命令可以查看文件�
 ```shell
 git init
 Initialized empty Git repository in /Users/lishude/Downloads/test/.git/
-git:(master) touch test.txt
-git:(master) ✗ git add .
-git:(master) ✗ git commit -m"1"
+touch test.txt
+git add .
+git commit -m"1"
 [master (root-commit) c5fa95c] 1
  1 file changed, 1 insertion(+)
  create mode 100644 test.txt
-test git:(master) stat test.txt
+test stat test.txt
 16777220 1894632 -rw-r--r-- 1 lishude staff 0 2 "Dec 17 18:07:10 2017" "Dec 17 18:06:55 2017" "Dec 17 18:06:55 2017" "Dec 17 18:06:44 2017" 4194304 8 0 test.txt
 ```
 这里我新建一个git仓库并且commit了一条。  
@@ -43,18 +43,18 @@ test git:(master) stat test.txt
 然后我们再次 commit 然后修改用户组，最后 reset 查看文件信息。
 
 ```shell
-git:(master) git commit -am"2"
+git commit -am"2"
 [master 773907e] 2
  1 file changed, 1 insertion(+)
-git:(master) stat test.txt
+stat test.txt
 16777220 1894632 -rw-r--r-- 1 lishude staff 0 4 "Dec 17 18:07:48 2017" "Dec 17 18:07:38 2017" "Dec 17 18:07:38 2017" "Dec 17 18:06:44 2017" 4194304 8 0 test.txt
-git:(master) sudo chown root test.txt
-test git:(master) ll
+sudo chown root test.txt
+test ll
 total 8
 -rw-r--r--  1 root  staff     4B 12 17 18:07 test.txt
-git:(master) git reset --hard HEAD~1
+git reset --hard HEAD~1
 HEAD is now at c5fa95c 1
-git:(master) stat test.txt
+stat test.txt
 16777220 1894740 -rw-r--r-- 1 lishude staff 0 2 "Dec 17 18:09:18 2017" "Dec 17 18:09:15 2017" "Dec 17 18:09:15 2017" "Dec 17 18:09:15 2017" 4194304 8 0 test.txt
 ```
 通过实验确实是这样的，文件新建时间已经变成最新的了。  
