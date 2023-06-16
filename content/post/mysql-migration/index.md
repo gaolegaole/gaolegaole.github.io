@@ -30,3 +30,6 @@ tags:
 `docker run -d --name db1 -p 3306:3306 -e MYSQL_DATABASE=db1 -e MYSQL_USER=db1 -e MYSQL_PASSWORD=123456 -e MYSQL_ROOT_PASSWORD=123456 mysql:8.0 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci`
 ## 3. 同样进入容器后执行
 `mysql -u username -p db1 < /tmp/db1.sql`
+
+[Mysql](https://dev.mysql.com/doc/refman/5.7/en/reloading-sql-format-dumps.html)\
+[docker registry](https://docs.docker.com/registry/recipes/mirror/#configure-the-docker-daemon)
