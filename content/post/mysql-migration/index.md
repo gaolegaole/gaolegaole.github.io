@@ -24,11 +24,11 @@ tags:
 # 2. 备份docker中的mysql数据
 个人项目，没有挂载数据目录。进入docker容器后执行：`mysqldump -u username -p --databases db1 > /tmp/db1.sql`输入密码后会导出到/tmp目录下
 # 3. 导入db1.sql
-## 1. 停掉旧的容器
+1. 停掉旧的容器\
 `docker stop db1`
-## 2. 创建容器
+2. 创建容器\
 `docker run -d --name db1 -p 3306:3306 -e MYSQL_DATABASE=db1 -e MYSQL_USER=db1 -e MYSQL_PASSWORD=123456 -e MYSQL_ROOT_PASSWORD=123456 mysql:8.0 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci`
-## 3. 同样进入容器后执行
+3. 同样进入容器后执行\
 `mysql -u username -p db1 < /tmp/db1.sql`
 
 [Mysql](https://dev.mysql.com/doc/refman/5.7/en/reloading-sql-format-dumps.html)\
