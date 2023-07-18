@@ -10,8 +10,18 @@ tags:
     - linux
 ---
 # 启动docker
-`docker run -d --name openfrp -p 15422:22 ubuntu sh -c "tail -f /dev/null"`
+1. `docker run -d --name openfrp -p 15422:22 ubuntu sh -c "tail -f /dev/null"`
+
 最后的tail -f是为了让docker运行后不退出
+
+2. sys info
+```shell
+root@d4b356ecbaed:/# cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=22.04
+DISTRIB_CODENAME=jammy
+DISTRIB_DESCRIPTION="Ubuntu 22.04.2 LTS"
+```
 # 安装必要软件
 ```shell
 apt update && apt install wget iproute2 iputils-ping vim openssh-server -y
@@ -43,7 +53,10 @@ PasswordAuthentication yes
 2. /usr/sbin/openfrp -c /frpc.ini
 
 ![1689647360303.png](./post/ubuntu_sshd/1689647360303.png)
-
+# 修改docker 默认密码
+```shell
+passwd
+```
 # 通过ssh连接
 `ssh root@frphost -p 10022 `
 frphost是启动frp后会出现的地址，-p是外网端口
@@ -52,7 +65,7 @@ frphost是启动frp后会出现的地址，-p是外网端口
 
 # 配置systemctl
 1. 安装systemd `apt install systemd -y`
-2. 启动 systemd //TODO 不知道怎么启动😂
+2. 启动 systemd //TODO 不知道怎么启动😂，container不建议使用systemd。[参考：https://stackoverflow.com/questions/59466250/docker-system-has-not-been-booted-with-systemd-as-init-system](https://stackoverflow.com/questions/59466250/docker-system-has-not-been-booted-with-systemd-as-init-system)[参考：https://stackoverflow.com/questions/59466250/docker-system-has-not-been-booted-with-systemd-as-init-system](https://stackoverflow.com/questions/59466250/docker-system-has-not-been-booted-with-systemd-as-init-system)
 3. systemctl enable ssh && systemctl start ssh
 4. frp service [参考：https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6](https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6)
     * touch /etc/systemd/system/openfrp.service
