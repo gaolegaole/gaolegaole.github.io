@@ -87,5 +87,43 @@ frphost是启动frp后会出现的地址，-p是外网端口
     [参考：https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6](https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6)
     * systemctl enable openfrp
     * systemctl start openfrp
+# 为了安全使用key登录
+## 1. 生成key
+```shell
+ssh-keygen -t rsa
+```
+默认是将key保存在~/.ssh目录下，id_rsa 和 id_rsa.pub
+## 2. 将私钥导出
+```shell
+docker cp open:/root/.ssh/id_rsa d:/code/id_rsa
+```
+## 3. 把公钥加到~/.ssh/authorized_keys中
+```shell
+cat ~/.ssh/id_rsa >> ~/.ssh/authorized_keys
+```
+## 4. 登录测试
+```shell
+ssh root@frphost -p port -i d:/code/id_rsa
+```
+output
+```shell
+PS D:\code> ssh root@jp-osk-bgp-1.openfrp.top -p [端口] -i D:\code\id_rsa
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.10.16.3-microsoft-standard-WSL2 x86_64)
 
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Tue Jul 18 02:51:41 2023 from 127.0.0.1
+root@d4b356ecbaed:~#
+```
+[Reference https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
+# 错误
+> Permissions for 'D:\\code\\id_rsa' are too open.
+
+拷贝出来的私钥权限太大了，解决方法参考。[Reference https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open](https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open)
 
