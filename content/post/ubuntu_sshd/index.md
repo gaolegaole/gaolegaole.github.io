@@ -34,7 +34,7 @@ PermitRootLogin yes
 ...
 PasswordAuthentication yes
 ```
-大概就这些需要修改地方
+大概就这些需要修改地方 [Reference https://askubuntu.com/questions/1378153/ssh-permission-denied](https://askubuntu.com/questions/1378153/ssh-permission-denied)
 
 ## 2. 启动ssh
 `/etc/init.d/ssh start //未配置systemd这样启动`
@@ -54,7 +54,7 @@ frphost是启动frp后会出现的地址，-p是外网端口
 1. 安装systemd `apt install systemd -y`
 2. 启动 systemd //TODO 不知道怎么启动😂
 3. systemctl enable ssh && systemctl start ssh
-4. frp service
+4. frp service [参考：https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6](https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6)
     * touch /etc/systemd/system/openfrp.service
     * 内容
     ```shell
