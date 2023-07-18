@@ -39,7 +39,7 @@ printer/target/classes/fonts/song.ttf
 ```
 5. 目录结构
 
-![1687771000403.png](./1687771000403.png)
+![1687771000403.png](./post/maven_main_tests_resources_merge/1687771000403.png)
 
-[参考](https://stackoverflow.com/questions/18977959/junit-test-should-use-main-resources)
+[参考：https://stackoverflow.com/questions/18977959/junit-test-should-use-main-resources](https://stackoverflow.com/questions/18977959/junit-test-should-use-main-resources)
 
