@@ -101,7 +101,11 @@ docker cp open:/root/.ssh/id_rsa d:/code/id_rsa
 ```shell
 cat ~/.ssh/id_rsa >> ~/.ssh/authorized_keys
 ```
-## 4. 登录测试
+## 4. 关闭密码登录
+```shell
+PasswordAuthentication no
+```
+## 5. 登录测试
 ```shell
 ssh root@frphost -p port -i d:/code/id_rsa
 ```
