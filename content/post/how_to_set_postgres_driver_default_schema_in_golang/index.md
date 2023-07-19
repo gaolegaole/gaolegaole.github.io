@@ -122,6 +122,7 @@ func TestDB(t *testing.T) {
 	assert.NotNil(t, db)
     //这里指定
     db.Exec("set search_path = $1;", cfg.DBSchema)
+    //or db.Exec("set search_path to $1;", cfg.DBSchema)
     ...
 }
 ```
