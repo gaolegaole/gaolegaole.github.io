@@ -23,6 +23,9 @@ func RandomStringChinese(length int) string {
 	return result
 }
 ```
+需要注意的是，如果要生成区间数字，可以使用以下公式：rand.Intn(max - min) + min ,rand.Intn(x)生成的是0 - x之间的数字（不包含x）。
+
+unicode编码转character使用run(0x4e00)进行转换。
 # 随机英文数字字符串
 ```golang
 const alphabetAndNumber = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
