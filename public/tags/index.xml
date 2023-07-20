@@ -5,6 +5,127 @@
         <link>https://gaolegaole.github.io/tags/</link>
         <description>Recent content in Tags on 朱凌宝的博客</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh</language><atom:link href="https://gaolegaole.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+        <language>zh-cn</language>
+        <lastBuildDate>Thu, 20 Jul 2023 10:30:47 +0800</lastBuildDate><atom:link href="https://gaolegaole.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>golang</title>
+        <link>https://gaolegaole.github.io/tags/golang/</link>
+        <pubDate>Thu, 20 Jul 2023 10:30:47 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/golang/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>linux</title>
+        <link>https://gaolegaole.github.io/tags/linux/</link>
+        <pubDate>Tue, 18 Jul 2023 10:16:32 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>sshd</title>
+        <link>https://gaolegaole.github.io/tags/sshd/</link>
+        <pubDate>Tue, 18 Jul 2023 10:16:32 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/sshd/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>java</title>
+        <link>https://gaolegaole.github.io/tags/java/</link>
+        <pubDate>Mon, 26 Jun 2023 17:06:32 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/java/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>docker</title>
+        <link>https://gaolegaole.github.io/tags/docker/</link>
+        <pubDate>Fri, 16 Jun 2023 15:55:56 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/docker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>graphjin</title>
+        <link>https://gaolegaole.github.io/tags/graphjin/</link>
+        <pubDate>Fri, 16 Jun 2023 15:55:56 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/graphjin/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>mysql</title>
+        <link>https://gaolegaole.github.io/tags/mysql/</link>
+        <pubDate>Fri, 16 Jun 2023 15:55:56 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/mysql/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>go</title>
+        <link>https://gaolegaole.github.io/tags/go/</link>
+        <pubDate>Thu, 08 Jun 2023 18:09:25 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/go/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>react</title>
+        <link>https://gaolegaole.github.io/tags/react/</link>
+        <pubDate>Wed, 07 Jun 2023 17:16:23 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/react/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>git</title>
+        <link>https://gaolegaole.github.io/tags/git/</link>
+        <pubDate>Thu, 18 May 2023 10:26:11 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/git/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>postgres</title>
+        <link>https://gaolegaole.github.io/tags/postgres/</link>
+        <pubDate>Sat, 06 May 2023 17:26:16 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/postgres/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>trigger</title>
+        <link>https://gaolegaole.github.io/tags/trigger/</link>
+        <pubDate>Sat, 06 May 2023 17:26:16 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/trigger/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>生活</title>
+        <link>https://gaolegaole.github.io/tags/life/</link>
+        <pubDate>Thu, 04 May 2023 11:35:39 +0800</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/life/</guid>
+        <description>&lt;img src="https://gaolegaole.github.io/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 生活" /&gt;</description>
+        </item>
+        <item>
+        <title>hugo</title>
+        <link>https://gaolegaole.github.io/tags/hugo/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/hugo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>javascript</title>
+        <link>https://gaolegaole.github.io/tags/javascript/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://gaolegaole.github.io/tags/javascript/</guid>
+        <description></description>
+        </item>
+        
     </channel>
 </rss>
