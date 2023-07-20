@@ -1,5 +1,5 @@
 ---
-title: "Maven_main_tests_resources_merge"
+title: "maven工程中合并tests和main中的resources"
 date: 2023-06-26T17:06:32+08:00
 draft: false
 description: "Maven_main_tests_resources_merge"

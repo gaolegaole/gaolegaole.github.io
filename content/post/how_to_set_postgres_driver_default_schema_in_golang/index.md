@@ -1,5 +1,5 @@
 ---
-title: "How_to_set_postgres_driver_default_schema_in_golang"
+title: "golang中使用postgres设置默认schema"
 date: 2023-07-19T14:30:53+08:00
 draft: false
 description: "How_to_set_postgres_driver_default_schema_in_golang"
