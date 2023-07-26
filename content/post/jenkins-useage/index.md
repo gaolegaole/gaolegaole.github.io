@@ -23,7 +23,7 @@ services:
         networks:
             - net
 networks:
-    - net
+    net:
 ```
 [network reference https://docs.docker.com/compose/networking/](https://docs.docker.com/compose/networking/)\
 [docker image repo https://hub.docker.com/_/jenkins/](https://hub.docker.com/_/jenkins/)
@@ -121,7 +121,7 @@ RUN yum -y install openssh-server
 # 创建用户后，设置密码，不使用交互模式，使用管道符号。将创建的目录配置只允许remote_user读写
 RUN useradd remote_user && \
     echo "1234" | passwd remote_user --stdin && \
-    mkdir /home/rmeote_user/.ssh && \
+    mkdir -p /home/remote_user/.ssh && \
     chmod 700 /home/remote_user/.ssh 
 # 使用ssh-keygen -f remote_user创建key文件，复制公钥到docker中
 COPY remote-key.pub /home/remote_user/.ssh/authorized_keys
@@ -147,8 +147,33 @@ services:
         networks:
             - net
 ```
+完整的yml
+```yml
+version: "3"
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    volumes:
+      - "d:\\code\\jenkins:/var/jenkins_home"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - net
+  remote_host:
+    container_name: remote_host
+    image: remote_host
+    build:
+      context: ./
+    networks:
+      - net
+networks:
+  net:
+```
 # build
-`docker-compose build`
+1. `docker-compose build`
+2. `docker-compose up -d`
 # 使用remote_user登录remote_host
 ```bash
 docker cp remote_user jenkins:/tmp/remote_user #拷贝私钥文件到jenkins
