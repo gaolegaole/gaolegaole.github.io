@@ -58,4 +58,32 @@ Note: If you don't use the argument -a with -G then Linux usermod will remove al
 uid=555(ricky) gid=502(john) groups=502(john),557(developers),558(workers)
 ```
 [reference https://www.itsmarttricks.com/best-linux-usermod-command-with-examples/](https://www.itsmarttricks.com/best-linux-usermod-command-with-examples/)\
+
+# get default administor password
+```bash
+docker logs -f jenkins
+
+//output
+...
+2023-07-26 01:29:14.605+0000 [id=40]    INFO    jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2023-07-26 01:29:14.607+0000 [id=40]    INFO    jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2023-07-26 01:29:14.656+0000 [id=53]    INFO    hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/var/jenkins_home/war/WEB-INF/lib/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2023-07-26 01:29:14.975+0000 [id=30]    INFO    jenkins.install.SetupWizard#init:
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+307f9e2870ab494f91928afcbf78b383
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+```
 [jenkins doc https://www.jenkins.io/doc/book/security/services/](https://www.jenkins.io/doc/book/security/services/)
