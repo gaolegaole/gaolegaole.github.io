@@ -86,4 +86,77 @@ Please use the following password to proceed to installation:
 
 This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
 ```
+# how to limit memory and CPU useage of docker containers?
+```bash
+docker run -it --memory="1g" --memory-swap="2g" --cpus="1.0" ubuntu
+```
+> Note: If you don’t want to use swap memory, give --memory and --memory-swap the same values.
+[reference https://phoenixnap.com/kb/docker-memory-and-cpu-limit](https://phoenixnap.com/kb/docker-memory-and-cpu-limit]\
+
+# first job
+1. 创建job后添加参数：NAME ,SHOW
+2. 创建脚本
+```bash
+#!/bin/bash
+
+NAME=$1   # 获取启动的第一个参数，$0是命令本身（script.sh)
+SHOW=$2   # 第二个参数
+
+if [ "$SHOW" = "true" ] ; then
+    echo "Hello , $NAME"
+else
+    echo "Not show , SHOW is $SHOW"
+fi
+```
+3. 添加shell
+`/var/jenkins_home/script.sh $NAME $SHOW`
+[reference https://geekdudes.wordpress.com/2019/08/02/jenkins-run-shell-script-add-parameters-to-job/](https://geekdudes.wordpress.com/2019/08/02/jenkins-run-shell-script-add-parameters-to-job/)\
+
+# 创建一个远程主机
+```dockerfile
+FROM centos:7
+
+RUN yum -y install openssh-server
+
+# 创建用户后，设置密码，不使用交互模式，使用管道符号。将创建的目录配置只允许remote_user读写
+RUN useradd remote_user && \
+    echo "1234" | passwd remote_user --stdin && \
+    mkdir /home/rmeote_user/.ssh && \
+    chmod 700 /home/remote_user/.ssh 
+# 使用ssh-keygen -f remote_user创建key文件，复制公钥到docker中
+COPY remote-key.pub /home/remote_user/.ssh/authorized_keys
+# 确保目录的所属
+RUN chown remote_user:remote_user -R /home/remote_user/.ssh/ && \
+    chmod 600 /home/remote_user/.ssh/authorized_keys
+
+RUN /usr/sbin/sshd-keygen  #
+
+CMD /usr/sbin/sshd -D #以后台方式启动sshd
+```
+修改docker-compose.yml
+```yml
+version: "3"
+services:
+    jenkins:
+        ...
+    remote-host:
+        container_name: remote-host
+        image: remote-host
+        build:
+            context: centos7 #文件夹下有Dockerfile文件
+        networks:
+            - net
+```
+# build
+`docker-compose build`
+# 使用remote_user登录remote_host
+```bash
+docker cp remote_user jenkins:/tmp/remote_user #拷贝私钥文件到jenkins
+docker exec -it jenkins bash
+
+
+cd /tmp
+ssh remote_user@remote_host -i remote_user 
+
+```
 [jenkins doc https://www.jenkins.io/doc/book/security/services/](https://www.jenkins.io/doc/book/security/services/)
