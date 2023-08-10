@@ -72,3 +72,5 @@ languages:
         title: 朱凌宝的博客
         description: 记录生活
         weight: 2
+
+ignoreFiles: content/post/templates/post.md

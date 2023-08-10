@@ -2,6 +2,11 @@ module:
     hugoVersion:
         extended: true
         min: "0.87.0"
+    # mounts:
+    # - excludeFiles: post/templates/*
+    #   target: content
+    # - excludeFiles: post/.obsidian/*
+    #   target: content  
 
 params:
     mainSections:
