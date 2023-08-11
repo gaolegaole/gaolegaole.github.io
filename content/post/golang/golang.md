@@ -11,7 +11,7 @@ tags:
 # x
 ### 可以struct嵌套interface使用
 这个 #gin-middleware #gin 使用在当需要给返回的header中添加信息时使用，如刷新token等。
-```golang
+```go
 type afterMiddlewareWriter struct {  
 	gin.ResponseWriter  
 	*token.Payload  

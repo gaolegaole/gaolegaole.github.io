@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "1926007140eef2ca",
+        "id": "3c73c79def34c4f0",
         "type": "tabs",
         "children": [
           {
-            "id": "d524b411bad7daf7",
+            "id": "ac0115f804b27a06",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/post.md",
+                "file": "golang/golang.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "478d494fb3f76038",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "react-memo-usage/index.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "templates/post.md",
+                "file": "react-memo-usage/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "templates/post.md",
+                "file": "react-memo-usage/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "templates/post.md"
+                "file": "react-memo-usage/index.md"
               }
             }
           }
@@ -146,11 +159,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d524b411bad7daf7",
+  "active": "478d494fb3f76038",
   "lastOpenFiles": [
     "golang/golang.md",
-    "test/未命名.md",
+    "react-memo-usage/index.md",
+    "react-memo-usage",
     "templates/post.md",
+    "test/未命名.md",
     "templates/post.tmpl",
     "test",
     "change-the-user-group-after-at-git-clone/index.md",
