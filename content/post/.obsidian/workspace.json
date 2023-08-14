@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "3c73c79def34c4f0",
+        "id": "fd5966b06e84b0c6",
         "type": "tabs",
         "children": [
           {
-            "id": "ac0115f804b27a06",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "golang/golang.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "478d494fb3f76038",
+            "id": "72f5c86353f19bff",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "docker-compose-depends-on/index.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -159,12 +146,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "478d494fb3f76038",
+  "active": "72f5c86353f19bff",
   "lastOpenFiles": [
-    "react-memo-usage/index.md",
-    "docker-compose-depends-on/index.md",
-    "docker-compose-depends-on",
     "golang/golang.md",
+    "docker-compose-depends-on/index.md",
+    "react-memo-usage/index.md",
+    "docker-compose-depends-on",
     "react-memo-usage",
     "templates/post.md",
     "test/未命名.md",

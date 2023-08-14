@@ -18,7 +18,7 @@ services:
     volumes:
       - erp_db_vol:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready" ]
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${DB_USERNAME} -d ${DB_NAME}'" ]
       interval: 10s
       timeout: 5s
       retries: 5
