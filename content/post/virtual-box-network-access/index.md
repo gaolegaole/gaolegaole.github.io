@@ -47,5 +47,10 @@ sudo ip link set enp0s8 dev up
 python3 -m http.server 8080
 ```
 12. 主机访问测试
+13. 拷贝主机生产的文件到虚拟机
+```bash
+scp ./dist user@192.168.56.106:/home/user/app/frontend/
+```
+[SCP Example https://haydenjames.io/linux-securely-copy-files-using-scp/](https://haydenjames.io/linux-securely-copy-files-using-scp/)
 
 [Reference https://www.cnblogs.com/Reyzal/p/7743747.html](https://www.cnblogs.com/Reyzal/p/7743747.html)
