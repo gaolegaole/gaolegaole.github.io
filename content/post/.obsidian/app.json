@@ -1,5 +1,7 @@
 {
   "strictLineBreaks": true,
   "showLineNumber": true,
-  "defaultViewMode": "preview"
+  "defaultViewMode": "preview",
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./"
 }
