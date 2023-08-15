@@ -53,4 +53,27 @@ scp ./dist user@192.168.56.106:/home/user/app/frontend/
 ```
 [SCP Example https://haydenjames.io/linux-securely-copy-files-using-scp/](https://haydenjames.io/linux-securely-copy-files-using-scp/)
 
+14. docker-compose运行多个command
+```bash
+...
+service:
+	...
+	command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+	...
+```
+15. reactjs dockerize
+nginx config
+```conf
+server {
+ listen 80;
+ 
+ location / {
+   root /usr/share/nginx/html/;
+   include /etc/nginx/mime.types;
+   try_files $uri $uri/ /index.html;
+ }
+}
+```
+[reactjs nginx配置 https://www.geeksforgeeks.org/how-to-dockerize-a-reactjs-app/](https://www.geeksforgeeks.org/how-to-dockerize-a-reactjs-app/)
+
 [Reference https://www.cnblogs.com/Reyzal/p/7743747.html](https://www.cnblogs.com/Reyzal/p/7743747.html)
