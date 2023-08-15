@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docker-compose-depends-on/index.md",
-                "mode": "preview",
+                "file": "virtual-box-network-access/index.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "041549a128ee2f52",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docker-compose-depends-on/index.md",
+                "file": "virtual-box-network-access/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docker-compose-depends-on/index.md",
+                "file": "virtual-box-network-access/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docker-compose-depends-on/index.md"
+                "file": "virtual-box-network-access/index.md"
               }
             }
           }
@@ -148,8 +149,8 @@
   },
   "active": "72f5c86353f19bff",
   "lastOpenFiles": [
-    "golang/golang.md",
     "docker-compose-depends-on/index.md",
+    "golang/golang.md",
     "react-memo-usage/index.md",
     "docker-compose-depends-on",
     "react-memo-usage",
