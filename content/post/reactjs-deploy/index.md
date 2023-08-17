@@ -97,8 +97,17 @@ server {
 ![](20230817102531.png)
 # vite优化
 ```js
+import {defineConfig} from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import legacy from '@vitejs/plugin-legacy'
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()/*,splitVendorChunkPlugin()*/],
+  plugins: [
+    react()/*,splitVendorChunkPlugin()*/,
+    //打包成es5 https://juejin.cn/s/vite%20%E6%89%93%E5%8C%85%20es5
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    })],
   define: {
     'process.env.POLYGON_CLIPPING_MAX_QUEUE_SIZE': '1000000',
   },
@@ -107,6 +116,7 @@ export default defineConfig({
     environment: 'happy-dom',
   },
   build: {
+    target: 'es5',
     rollupOptions: {
       output: {
         /**
@@ -123,14 +133,25 @@ export default defineConfig({
           'react-router-dom': ['react-router-dom'],
           graphql: ['graphql'],
           mathjs: ['mathjs'],
-          'rc-resize-observer': ['rc-resize-observer'],
           '@apollo/client': ['@apollo/client'],
           '@ant-design/charts': ['@ant-design/charts'],
           '@ant-design/icons': ['@ant-design/icons'],
           '@ant-design/pro-components': ['@ant-design/pro-components'],
         },
-	}
-}
+
+        /**
+         * 2.以函数的形式使用
+         * 将第三方包全部打包在一个chunk中，名称叫 vendor
+         */
+        /*manualChunks(id, { getModuleInfo, getModuleIds }) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },*/
+      },
+    }
+  }
+})
 ```
 在vite.config.ts中配置`build.rollupOptions.output`将项目中用到的第三方模块都拆分出去。\
 拆分前build（）：
