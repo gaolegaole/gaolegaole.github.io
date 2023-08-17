@@ -3,5 +3,6 @@
   "showLineNumber": true,
   "defaultViewMode": "preview",
   "newFileLocation": "current",
-  "attachmentFolderPath": "./"
+  "attachmentFolderPath": "./",
+  "useMarkdownLinks": true
 }

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "fd5966b06e84b0c6",
+        "id": "fcf3fa12318f95ce",
         "type": "tabs",
         "children": [
           {
-            "id": "72f5c86353f19bff",
+            "id": "3ebaf254f445f924",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "virtual-box-network-access/index.md",
+                "file": "reactjs-deploy/index.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "041549a128ee2f52",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "virtual-box-network-access/index.md",
+                "file": "reactjs-deploy/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "virtual-box-network-access/index.md",
+                "file": "reactjs-deploy/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "virtual-box-network-access/index.md"
+                "file": "reactjs-deploy/index.md"
               }
             }
           }
@@ -147,8 +146,16 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "72f5c86353f19bff",
+  "active": "3ebaf254f445f924",
   "lastOpenFiles": [
+    "reactjs-deploy/20230817102531.png",
+    "reactjs-deploy/20230817105827.png",
+    "reactjs-deploy/20230817102625.png",
+    "reactjs-deploy/index.md",
+    "reactjs-deploy/Pasted image 20230817105357.png",
+    "reactjs-deploy/Pasted image 20230817104700.png",
+    "virtual-box-network-access/index.md",
+    "reactjs-deploy/Pasted.md",
     "Pasted image 20230815104727.png",
     "docker-compose-depends-on/index.md",
     "golang/golang.md",
